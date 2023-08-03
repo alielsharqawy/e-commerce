@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names
-import 'package:app/screens/login.dart';
+import 'package:app/screens/login/login.dart';
 import 'package:app/widget/logo_image.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

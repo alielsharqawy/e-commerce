@@ -1,6 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:app/screens/aboutapp.dart';
-import 'package:app/screens/aboutus.dart';
 import 'package:app/screens/categories.dart';
 import 'package:app/screens/home.dart';
 import 'package:app/screens/profile.dart';
@@ -15,13 +13,12 @@ class NavigationBarButton extends StatefulWidget {
 }
 
 class _NavigationBarButtonState extends State<NavigationBarButton> {
+  // ignore: non_constant_identifier_names
   int page_index = 0;
   final _pageOption = [
-    Profile(),
     Home(),
     Categories(),
-    AboutUS(),
-    AboutApp(),
+    Profile(),
   ];
 
   @override
@@ -29,19 +26,16 @@ class _NavigationBarButtonState extends State<NavigationBarButton> {
     return Scaffold(
       body: _pageOption[page_index],
       bottomNavigationBar: ConvexAppBar(
+        // ignore: prefer_const_literals_to_create_immutables
         items: [
           TabItem(
-            icon: Icons.person,
+            icon: Icons.category,
           ),
           TabItem(
             icon: Icons.home,
           ),
           TabItem(
-            icon: Icons.category,
-          ),
-          TabItem(icon: Icons.add_box_outlined),
-          TabItem(
-            icon: Icons.add_a_photo,
+            icon: Icons.person,
           ),
         ],
         backgroundColor: Colors.white,

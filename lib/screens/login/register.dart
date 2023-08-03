@@ -1,13 +1,12 @@
 import 'package:app/data/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data/states/user_states/user_state.dart';
-import 'package:app/screens/register.dart';
-import 'package:app/start/navigationbar.dart';
+import 'package:app/screens/start/navigationbar.dart';
 import 'package:app/widget/form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  RegisterScreen({super.key});
 
   final formKey = GlobalKey<FormState>();
   final TextEditingController passController = TextEditingController();
@@ -19,18 +18,16 @@ class LoginScreen extends StatelessWidget {
       create: (context) => UserCubit(),
       child: BlocConsumer<UserCubit, UserState>(
         listener: (context, state) {
-          if (state is UserLoginSuccessState) {
+          if (state is UserSuccesState) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const NavigationBarButton(),
-                ));
+                    builder: (context) => const NavigationBarButton()));
           }
         },
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.white,
               elevation: 0.0,
             ),
             body: SingleChildScrollView(
@@ -81,13 +78,13 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.blue,
                       onPressed: () async {
                         if (formKey.currentState!.validate()) {
-                          UserCubit.get(context).userLogin(
+                          UserCubit.get(context).userRegister(
                               email: emailController.text,
                               password: passController.text);
                         }
                       },
                       child: const Text(
-                        "LogIn",
+                        "register",
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                     ),
@@ -115,23 +112,6 @@ class LoginScreen extends StatelessWidget {
                           height: 20,
                         ),
                       ],
-                    ),
-                    MaterialButton(
-                      height: 50,
-                      minWidth: double.infinity,
-                      elevation: 10.0,
-                      color: Colors.grey,
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RegisterScreen(),
-                            ));
-                      },
-                      child: const Text(
-                        "No Account? Sign Up",
-                        style: TextStyle(fontSize: 20, color: Colors.black45),
-                      ),
                     ),
                   ]),
                 ),

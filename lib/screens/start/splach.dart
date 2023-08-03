@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:async';
 import 'package:app/widget/logo_image.dart';
-import 'package:app/start/onboard.dart';
+import 'package:app/screens/start/onboard.dart';
 import 'package:flutter/material.dart';
 
 class SplachScreen extends StatefulWidget {
