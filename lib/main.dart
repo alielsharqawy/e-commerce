@@ -1,6 +1,4 @@
 import 'package:app/start/navigationbar.dart';
-import 'package:app/start/onboard.dart';
-import 'package:app/start/splach.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,8 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  NavigationBarButton(),
+      home: NavigationBarButton(),
     );
   }
 }
-

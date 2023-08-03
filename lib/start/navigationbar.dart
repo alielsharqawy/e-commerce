@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:app/pages/aboutapp.dart';
-import 'package:app/pages/aboutus.dart';
-import 'package:app/pages/categories.dart';
-import 'package:app/pages/home.dart';
-import 'package:app/pages/profile.dart';
+import 'package:app/screens/aboutapp.dart';
+import 'package:app/screens/aboutus.dart';
+import 'package:app/screens/categories.dart';
+import 'package:app/screens/home.dart';
+import 'package:app/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
@@ -16,15 +16,18 @@ class NavigationBarButton extends StatefulWidget {
 
 class _NavigationBarButtonState extends State<NavigationBarButton> {
   int page_index = 0;
-  final _pageOption = [Profile(),Home(),Categories(),AboutUS(),AboutApp(),];
+  final _pageOption = [
+    Profile(),
+    Home(),
+    Categories(),
+    AboutUS(),
+    AboutApp(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-      body:
-       _pageOption[page_index],
+      body: _pageOption[page_index],
       bottomNavigationBar: ConvexAppBar(
         items: [
           TabItem(

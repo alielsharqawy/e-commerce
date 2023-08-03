@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names
-import 'package:app/sign/login.dart';
+import 'package:app/screens/login.dart';
 import 'package:app/widget/logo_image.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -46,8 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onPressed: () async {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const LoginScreen()),
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
                 );
               },
               child: Container(
