@@ -1,6 +1,6 @@
 import 'package:app/data/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data/states/user_states/user_state.dart';
-import 'package:app/screens/profile.dart';
+import 'package:app/start/navigationbar.dart';
 import 'package:app/widget/form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,8 +19,10 @@ class RegisterScreen extends StatelessWidget {
       child: BlocConsumer<UserCubit, UserState>(
         listener: (context, state) {
           if (state is UserSuccesState) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Profile()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NavigationBarButton()));
           }
         },
         builder: (context, state) {
@@ -36,7 +38,7 @@ class RegisterScreen extends StatelessWidget {
                   key: formKey,
                   child: Column(children: [
                     Image.asset(
-                      "assets/image/flutter.jpg",
+                      "assets/logo.jpg",
                       height: 200,
                       width: 200,
                     ),
