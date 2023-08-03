@@ -46,7 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onPressed: () async {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
               child: Container(
