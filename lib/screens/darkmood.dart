@@ -57,7 +57,7 @@ class Mydrawar extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const AboutUS()),
+                            builder: (context) =>  AboutUS()),
                       );
                     },
                     child: Row(
