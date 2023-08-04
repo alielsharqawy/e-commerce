@@ -1,5 +1,5 @@
-import 'package:app/data/cubit/category_cubit/category.dart';
-import 'package:app/data/states/category_state/category_state.dart';
+import 'package:app/data_cubit/cubit/category_cubit/category.dart';
+import 'package:app/data_cubit/states/category_state/category_state.dart';
 import 'package:app/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

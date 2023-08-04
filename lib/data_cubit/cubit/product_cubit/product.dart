@@ -3,8 +3,8 @@ import 'package:app/models/product_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CategoryCubit extends Cubit<ProductState> {
-  CategoryCubit() : super(ProductInitState());
+class ProductCubit extends Cubit<ProductState> {
+  ProductCubit() : super(ProductInitState());
 
   static ProductModel get(context) => BlocProvider.of(context);
 
@@ -18,8 +18,8 @@ class CategoryCubit extends Cubit<ProductState> {
         .then((QuerySnapshot querySnapshot) {
       products = [];
       querySnapshot.docs.forEach((doc) {
-        ProductModel category = ProductModel.fromFirestore(doc);
-        products.add(category);
+        ProductModel product = ProductModel.fromFirestore(doc);
+        products.add(product);
       });
       print("${products.length}");
       emit(ProductSuccessState());
