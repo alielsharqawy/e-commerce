@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
                         TextTheme(bodyMedium: TextStyle(color: Colors.white))),
                 themeMode: cubit.isdark ? ThemeMode.dark : ThemeMode.light,
                 debugShowCheckedModeBanner: false,
-                home: AboutApp(),
+                home: SplachScreen(),
               );
             }));
   }

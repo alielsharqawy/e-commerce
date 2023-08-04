@@ -29,10 +29,10 @@ class _NavigationBarButtonState extends State<NavigationBarButton> {
         // ignore: prefer_const_literals_to_create_immutables
         items: [
           TabItem(
-            icon: Icons.home,
+            icon: Icons.category,
           ),
           TabItem(
-            icon: Icons.category,
+            icon: Icons.home,
           ),
           TabItem(
             icon: Icons.person,
