@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:async';
 import 'package:app/widget/logo_image.dart';
-import 'package:app/start/onboard.dart';
+import 'package:app/screens/start/onboard.dart';
 import 'package:flutter/material.dart';
 
 class SplachScreen extends StatefulWidget {
@@ -25,7 +25,7 @@ class _SplachScreenState extends State<SplachScreen> {
   }
 
   route() {
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const OnboardingScreen()),
     );
@@ -34,7 +34,6 @@ class _SplachScreenState extends State<SplachScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: LogoImage(),
       ),

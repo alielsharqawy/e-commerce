@@ -12,3 +12,5 @@ class UserLoginSuccessState extends UserState {
   final String uId;
   UserLoginSuccessState(this.uId);
 }
+
+class changemodestate extends UserState {}
