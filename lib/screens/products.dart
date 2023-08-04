@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               Text(
-                "${model.name} ",
+                "${model.name}   Price: ${model.price} ",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,

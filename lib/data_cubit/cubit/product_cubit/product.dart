@@ -6,14 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ProductCubit extends Cubit<ProductState> {
   ProductCubit() : super(ProductInitState());
 
-  static ProductModel get(context) => BlocProvider.of(context);
+  static ProductCubit get(context) => BlocProvider.of(context);
 
   List<ProductModel> products = [];
 
   void GetProduct() {
     emit(ProductInitState());
     FirebaseFirestore.instance
-        .collection('categories')
+        .collection('products')
         .get()
         .then((QuerySnapshot querySnapshot) {
       products = [];

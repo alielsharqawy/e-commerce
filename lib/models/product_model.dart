@@ -6,10 +6,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class ProductModel {
   String image;
   String name;
+  String price;
  
   ProductModel({
     required this.image,
     required this.name,
+    required this.price
   });
 
   ProductModel copyWith({
@@ -19,6 +21,7 @@ class ProductModel {
     return ProductModel(
       image: image ?? this.image,
       name: name ?? this.name,
+      price: price ?? this.price,
     );
   }
 
@@ -33,6 +36,7 @@ class ProductModel {
     return ProductModel(
       image: map['image'] as String,
       name: map['name'] as String,
+      price: map['price'] as String
     );
   }
 
@@ -57,6 +61,7 @@ class ProductModel {
     return ProductModel(
       image: data['image'],
       name: data['name'],
+      price: data['price']
       
     );
   }
