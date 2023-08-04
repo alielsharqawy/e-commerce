@@ -5,6 +5,7 @@ import '../data/cubit/user_cubit/user_cubit.dart';
 import '../data/states/user_states/user_state.dart';
 import 'aboutapp.dart';
 import 'aboutus.dart';
+import 'login/login.dart';
 
 class Mydrawar extends StatelessWidget {
   const Mydrawar({super.key});
@@ -51,7 +52,16 @@ class Mydrawar extends StatelessWidget {
                       children: [
                         Text("About Us"),
                     Icon(Icons.group,),
-            ],),  )
+            ],),  ),ElevatedButton(onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  LoginScreen()),
+                    );
+                  }, child:Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("log out"),
+                      Icon(Icons.logout,),
+                    ],),  )
 
 
                 ],

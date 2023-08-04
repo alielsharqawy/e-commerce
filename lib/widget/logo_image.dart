@@ -17,7 +17,7 @@ class LogoImage extends StatelessWidget {
             height: 300,
             width: 300,
             decoration: BoxDecoration(
-                color: cubit.isdark ? Colors.white : Colors.black,
+                color: cubit.isdark ? Colors.black : Colors.white,
                 borderRadius: BorderRadius.circular(50)),
             child: Image.asset("assets/logo.jpg"),
           );

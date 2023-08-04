@@ -33,7 +33,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     var cubit = UserCubit.get(context);
     return Scaffold(
       body: Container(
-        color: cubit.isdark? Colors.white : Colors.black,
+        color: cubit.isdark? Colors.black : Colors.white,
         padding: EdgeInsets.only(bottom: 60),
         child: PageView(
           controller: MyController,
@@ -56,7 +56,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           (
           shape: MaterialStatePropertyAll(ContinuousRectangleBorder(borderRadius: BorderRadius.all(Radius.zero))),
           fixedSize: MaterialStatePropertyAll(Size(double.maxFinite,80)),
-          backgroundColor: MaterialStatePropertyAll(cubit.isdark? Colors.white : Colors.black),
+          backgroundColor: MaterialStatePropertyAll(cubit.isdark? Colors.black : Colors.white),
             ),
               onPressed: () {
                 Navigator.pushReplacement(
@@ -66,12 +66,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
                 child: Text(
                   "LET'S START!",
-                  style:TextStyle(color: cubit.isdark? Colors.black : Colors.white, ),
+                  style:TextStyle(color: cubit.isdark? Colors.white : Colors.black, ),
                 ),
 
             )
           : Container(
-              color: cubit.isdark? Colors.white : Colors.black,
+              color: cubit.isdark? Colors.black : Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
