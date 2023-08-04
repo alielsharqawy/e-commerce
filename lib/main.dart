@@ -26,7 +26,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => UserCubit(),
+        create: (context) => UserCubit()..changemode(
+          shared: isDark
+        ),
         child: BlocConsumer<UserCubit, UserState>(
             listener: (context, state) {},
             builder: (context, state) {

@@ -57,6 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           shape: MaterialStatePropertyAll(ContinuousRectangleBorder(borderRadius: BorderRadius.all(Radius.zero))),
           fixedSize: MaterialStatePropertyAll(Size(double.maxFinite,80)),
           backgroundColor: MaterialStatePropertyAll(cubit.isdark? Colors.black : Colors.white),
+            elevation: MaterialStatePropertyAll(0)
             ),
               onPressed: () {
                 Navigator.pushReplacement(

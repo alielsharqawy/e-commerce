@@ -24,22 +24,20 @@ class LoginScreen extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) =>
-              const NavigationBarButton(),
+               NavigationBarButton(),
             ));
       }if(state is UserErrState){
           AwesomeDialog(
+            autoHide: Duration(milliseconds: 2000),
             context: context,
             dialogType: DialogType.error,
-            animType: AnimType.topSlide,
+            animType: AnimType.scale,
             title: "Error",
             desc: 'Email or password is not valid',
-            btnCancelOnPress: () {},
-            btnOkOnPress: () {},
           )..show();
-        }if(state is UserLoadingState){
+        }else if(state is UserLoadingState){
           AwesomeDialog(
-            autoHide: Duration(milliseconds:1200),
-             transitionAnimationDuration: Duration(milliseconds: 100),
+            autoHide: Duration(milliseconds: 3000),
              context: context,
              dialogType: DialogType.info,
              animType: AnimType.scale,
