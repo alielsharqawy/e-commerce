@@ -38,9 +38,10 @@ class _NavigationBarButtonState extends State<NavigationBarButton> {
             icon: Icons.person,
           ),
         ],
-        backgroundColor: Colors.white,
-        activeColor: Colors.blue,
-        color: Colors.black,
+
+        backgroundColor:Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+        activeColor: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+        color: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
         initialActiveIndex: page_index,
         onTap: (int index) {
           setState(() {

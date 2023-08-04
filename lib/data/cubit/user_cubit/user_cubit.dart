@@ -1,5 +1,6 @@
 import 'package:app/data/states/user_states/user_state.dart';
 import 'package:app/models/user_model.dart';
+import 'package:app/widget/cach_helper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,7 +49,7 @@ class UserCubit extends Cubit<UserState> {
     });
   }
 
-  void userLogin({
+  userLogin({
     required String email,
     required String password,
   }) {
@@ -62,5 +63,19 @@ class UserCubit extends Cubit<UserState> {
     }).catchError((error) {
       emit(UserErrState());
     });
+  }
+
+  bool isdark = false;
+
+  void changemode({bool? shared}) {
+    if (shared != null) {
+      isdark = shared;
+      emit(changemodestate());
+    } else {
+      isdark = !isdark;
+      sharedhelper.putbool(key: 'isDark', value: isdark).then((value) {
+        emit(changemodestate());
+      });
+    }
   }
 }

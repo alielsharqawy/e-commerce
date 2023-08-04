@@ -12,40 +12,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.amber,
       ),
-      drawer: Drawer(
-        width: 250,
-        child: ListView(
-          children: [
-            ListTile(
-              title: const Text("About The Application"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutApp()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text("About Us"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutUS()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text("Dark Mode"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const DarkMood()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      endDrawer: Mydrawar(),
     );
   }
 }

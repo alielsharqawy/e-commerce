@@ -25,7 +25,7 @@ class _SplachScreenState extends State<SplachScreen> {
   }
 
   route() {
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const OnboardingScreen()),
     );
@@ -34,7 +34,6 @@ class _SplachScreenState extends State<SplachScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: LogoImage(),
       ),
