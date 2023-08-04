@@ -1,5 +1,6 @@
 import 'package:app/data_cubit/cubit/product_cubit/product.dart';
 import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
+import 'package:app/data_cubit/states/product_state/product_state.dart';
 import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/models/product_model.dart';
 import 'package:app/screens/darkmood.dart';
@@ -11,14 +12,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<UserCubit, UserState>(
+    return BlocConsumer<ProductCubit, ProductState>(
       listener: (context, state) {},
       builder: (context, state) {
-        var cubit = UserCubit.get(context);
+        var cubit = ProductCubit.get(context);
         return Scaffold(
-            backgroundColor: cubit.isdark ? Colors.black : Colors.white,
+            
             appBar: AppBar(
-              backgroundColor: cubit.isdark ? Colors.amber : Colors.black,
+             
               leading: Icon(
                 Icons.arrow_back,
                 color: Colors.amber,
@@ -56,7 +57,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               Text(
-                "${model.name}",
+                "${model.name} ${model.price}",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
