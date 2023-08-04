@@ -51,7 +51,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 icons_launcher:
-  image_path: "assets/logo.jpg"
+  image_path: "assets/D-logo.png"
   platforms:
     android:
       enable: true

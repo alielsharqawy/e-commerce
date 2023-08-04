@@ -7,6 +7,9 @@ import '../data/states/user_states/user_state.dart';
 class LogoImage extends StatelessWidget {
   const LogoImage({super.key});
 
+  final String dark = "assets/D-logo.png";
+  final String light = "assets/L-logo.png";
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UserCubit, UserState>(
@@ -19,7 +22,7 @@ class LogoImage extends StatelessWidget {
             decoration: BoxDecoration(
                 color: cubit.isdark ? Colors.black : Colors.white,
                 borderRadius: BorderRadius.circular(50)),
-            child: Image.asset("assets/logo.jpg"),
+            child: Image.asset(cubit.isdark ? dark : light),
           );
         });
   }
