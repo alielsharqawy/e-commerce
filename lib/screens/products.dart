@@ -12,29 +12,22 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ProductCubit, ProductState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        var cubit = ProductCubit.get(context);
-        return Scaffold(
-            
-            appBar: AppBar(
-             
-              leading: Icon(
-                Icons.arrow_back,
-                color: Colors.amber,
-              ),
+    return BlocProvider(
+      create: (context) => ProductCubit()..GetProduct(),
+      child: BlocConsumer<ProductCubit, ProductState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return Scaffold(
+              body: ListView.separated(
+            physics: BouncingScrollPhysics(),
+            separatorBuilder: (context, index) => SizedBox(height: 20),
+            itemBuilder: (context, index) => buildItem(
+              context.read<ProductCubit>().products[index],
             ),
-            endDrawer: Mydrawar(),
-            body: ListView.separated(
-              physics: BouncingScrollPhysics(),
-              separatorBuilder: (context, index) => SizedBox(height: 20),
-              itemBuilder: (context, index) => buildItem(
-                context.read<ProductCubit>().products[index],
-              ),
-              itemCount: context.read<ProductCubit>().products.length,
-            ));
-      },
+            itemCount: context.read<ProductCubit>().products.length,
+          ));
+        },
+      ),
     );
   }
 
@@ -57,12 +50,13 @@ class Home extends StatelessWidget {
                 ),
               ),
               Text(
-                "${model.name} ${model.price}",
+                "${model.name} ",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
                 ),
-              )
+              ),
+         
             ],
           ),
         ),

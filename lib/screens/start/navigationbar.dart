@@ -14,7 +14,7 @@ class NavigationBarButton extends StatefulWidget {
 
 class _NavigationBarButtonState extends State<NavigationBarButton> {
   // ignore: non_constant_identifier_names
-  int page_index = 0;
+  int page_index = 1;
   final _pageOption = [
     Categories(),
     Home(),

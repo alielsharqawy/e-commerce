@@ -10,7 +10,7 @@ class ProductCubit extends Cubit<ProductState> {
 
   List<ProductModel> products = [];
 
-  void GetCategory() {
+  void GetProduct() {
     emit(ProductInitState());
     FirebaseFirestore.instance
         .collection('categories')
