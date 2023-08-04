@@ -1,5 +1,5 @@
-import 'package:app/data/cubit/user_cubit/user_cubit.dart';
-import 'package:app/data/states/user_states/user_state.dart';
+import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
+import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/screens/login/register.dart';
 import 'package:app/screens/start/navigationbar.dart';
 import 'package:app/widget/form_field.dart';
@@ -41,7 +41,10 @@ class LoginScreen extends StatelessWidget {
               child: Form(
                 key: formKey,
                 child: Column(children: [
-                  LogoImage(),
+                  Container(
+                    height: 170,
+                    width: 170,
+                    child: LogoImage(),),
                   const SizedBox(
                     height: 40,
                   ),

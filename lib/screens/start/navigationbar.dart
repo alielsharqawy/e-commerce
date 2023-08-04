@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:app/screens/categories.dart';
-import 'package:app/screens/home.dart';
+import 'package:app/screens/products.dart';
 import 'package:app/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';

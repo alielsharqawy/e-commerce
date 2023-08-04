@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../data/cubit/user_cubit/user_cubit.dart';
-import '../data/states/user_states/user_state.dart';
+import '../data_cubit/cubit/user_cubit/user_cubit.dart';
+import '../data_cubit/states/user_states/user_state.dart';
 
 class LogoImage extends StatelessWidget {
   const LogoImage({super.key});

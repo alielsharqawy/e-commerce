@@ -1,23 +1,26 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductModel {
   String image;
-  String productName;
+  String name;
   num price;
   ProductModel({
     required this.image,
-    required this.productName,
+    required this.name,
     required this.price,
   });
 
   ProductModel copyWith({
     String? image,
-    String? productName,
+    String? name,
     num? price,
   }) {
     return ProductModel(
       image: image ?? this.image,
-      productName: productName ?? this.productName,
+      name: name ?? this.name,
       price: price ?? this.price,
     );
   }
@@ -25,7 +28,7 @@ class ProductModel {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'image': image,
-      'productName': productName,
+      'name': name,
       'price': price,
     };
   }
@@ -33,7 +36,7 @@ class ProductModel {
   factory ProductModel.fromMap(Map<String, dynamic> map) {
     return ProductModel(
       image: map['image'] as String,
-      productName: map['productName'] as String,
+      name: map['name'] as String,
       price: map['price'] as num,
     );
   }
@@ -44,18 +47,26 @@ class ProductModel {
       ProductModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() =>
-      'ProductModel(image: $image, productName: $productName, price: $price)';
+  String toString() => 'ProductModel(image: $image, name: $name, price: $price)';
 
   @override
   bool operator ==(covariant ProductModel other) {
     if (identical(this, other)) return true;
-
-    return other.image == image &&
-        other.productName == productName &&
-        other.price == price;
+  
+    return 
+      other.image == image &&
+      other.name == name &&
+      other.price == price;
+  }
+   factory ProductModel.fromFirestore(DocumentSnapshot doc) {
+    Map data = doc.data() as Map;
+    return ProductModel(
+      image: data['image'],
+      name: data['name'],
+      price: data['price'],
+    );
   }
 
   @override
-  int get hashCode => image.hashCode ^ productName.hashCode ^ price.hashCode;
+  int get hashCode => image.hashCode ^ name.hashCode ^ price.hashCode;
 }

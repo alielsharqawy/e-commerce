@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:app/data/cubit/user_cubit/user_cubit.dart';
-import 'package:app/data/states/user_states/user_state.dart';
+import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
+import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/screens/start/navigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
