@@ -30,10 +30,10 @@ class LoginScreen extends StatelessWidget {
         var cubit = UserCubit.get(context);
         return Scaffold(
           backgroundColor: cubit.isdark ? Colors.black : Colors.white,
-          appBar: AppBar(
-            backgroundColor: cubit.isdark ? Colors.black : Colors.white,
-            elevation: 0.0,
-          ),
+          // appBar: AppBar(
+          //   backgroundColor: cubit.isdark ? Colors.black : Colors.white,
+          //   elevation: 0.0,
+          // ),
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Padding(
