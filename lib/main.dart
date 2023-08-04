@@ -1,7 +1,7 @@
 import 'package:app/data/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data/states/user_states/user_state.dart';
 import 'package:app/firebase_options.dart';
-import 'package:app/screens/aboutapp.dart';
+import 'package:app/screens/start/splach.dart';
 import 'package:app/widget/cach_helper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
