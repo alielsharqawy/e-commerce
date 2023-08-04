@@ -17,7 +17,7 @@ class RegisterScreen extends StatelessWidget {
     return BlocConsumer<UserCubit, UserState>(
       listener: (context, state) {
         if (state is UserSuccesState) {
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                   builder: (context) => const NavigationBarButton()));
@@ -26,8 +26,9 @@ class RegisterScreen extends StatelessWidget {
       builder: (context, state) {
         var cubit = UserCubit.get(context);
         return Scaffold(
+          backgroundColor: cubit.isdark ? Colors.black : Colors.white,
           appBar: AppBar(
-            backgroundColor:cubit.isdark ? Colors.white : Colors.black,
+            backgroundColor: cubit.isdark ? Colors.black : Colors.white,
             elevation: 0.0,
           ),
           body: SingleChildScrollView(
@@ -90,28 +91,6 @@ class RegisterScreen extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Forget password ? No yawa",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Tap me",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                    ],
                   ),
                 ]),
               ),

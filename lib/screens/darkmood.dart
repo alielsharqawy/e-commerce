@@ -25,45 +25,68 @@ class Mydrawar extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                    cubit.changemode();
-                  },
-                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(cubit.isdark? 'LightMode' :'Dark Mode'  ),
-                      Icon(cubit.isdark? Icons.brightness_4_outlined: Icons.dark_mode  ),
-                    ],),),
-                  ElevatedButton(onPressed: () {
-                    Navigator.push(
+                      cubit.changemode();
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(cubit.isdark ? 'LightMode' : 'Dark Mode'),
+                        Icon(cubit.isdark
+                            ? Icons.brightness_4_outlined
+                            : Icons.dark_mode),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AboutApp()));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("About The Application"),
+                        Icon(Icons.info_rounded),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const AboutApp()));
-                  }, child:
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("About The Application"),
-                      Icon(Icons.info_rounded),
-                    ],), ),
-                  ElevatedButton(onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const AboutUS()),
-                    );
-                  }, child:Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            builder: (context) => const AboutUS()),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("About Us"),
-                    Icon(Icons.group,),
-            ],),  ),ElevatedButton(onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  LoginScreen()),
-                    );
-                  }, child:Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("log out"),
-                      Icon(Icons.logout,),
-                    ],),  )
-
-
+                        Icon(
+                          Icons.group,
+                        ),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("log out"),
+                        Icon(
+                          Icons.logout,
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
