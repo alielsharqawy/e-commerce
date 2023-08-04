@@ -16,8 +16,8 @@ class _NavigationBarButtonState extends State<NavigationBarButton> {
   // ignore: non_constant_identifier_names
   int page_index = 0;
   final _pageOption = [
-    Home(),
     Categories(),
+    Home(),
     Profile(),
   ];
 
@@ -29,10 +29,10 @@ class _NavigationBarButtonState extends State<NavigationBarButton> {
         // ignore: prefer_const_literals_to_create_immutables
         items: [
           TabItem(
-            icon: Icons.category,
+            icon: Icons.home,
           ),
           TabItem(
-            icon: Icons.home,
+            icon: Icons.category,
           ),
           TabItem(
             icon: Icons.person,
