@@ -37,7 +37,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     builder: (context, state) {
     var cubit = UserCubit.get(context);
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: cubit.isdark ? Colors.black : Colors.white,
+          elevation: 0.0,
+          actions: [
+            TextButton(onPressed: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>LoginScreen(),));
+            }, child: Text('Skip'))
+          ],
+        ),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
