@@ -43,6 +43,10 @@ class MyApp extends StatelessWidget {
                   unselectedItemColor: Colors.white,
                   backgroundColor: Colors.amber,
                 ),
+                floatingActionButtonTheme: FloatingActionButtonThemeData(
+                  backgroundColor: Colors.amber,
+                  elevation: 20,
+                ),
                 elevatedButtonTheme: ElevatedButtonThemeData(
                     style: ButtonStyle(
                         backgroundColor:
@@ -60,6 +64,10 @@ class MyApp extends StatelessWidget {
                 appBarTheme: AppBarTheme(
                   color: Colors.amber,
                   foregroundColor: Colors.white,
+                ),
+                floatingActionButtonTheme: FloatingActionButtonThemeData(
+                  backgroundColor: Colors.amber,
+                  elevation: 20,
                 ),
                 bottomNavigationBarTheme: BottomNavigationBarThemeData(
                   selectedItemColor: Colors.white,

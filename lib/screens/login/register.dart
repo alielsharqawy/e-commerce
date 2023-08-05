@@ -40,8 +40,8 @@ class RegisterScreen extends StatelessWidget {
                 key: formKey,
                 child: Column(children: [
                   Container(
-                    height: 170,
-                    width: 170,
+                    height: 250,
+                    width: 250,
                     child: LogoImage(),
                   ),
                   const SizedBox(
@@ -77,7 +77,7 @@ class RegisterScreen extends StatelessWidget {
                     height: 50,
                     minWidth: double.infinity,
                     elevation: 10.0,
-                    color: Colors.blue,
+                    color: Colors.amber,
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         UserCubit.get(context).userRegister(
@@ -87,7 +87,7 @@ class RegisterScreen extends StatelessWidget {
                     },
                     child: const Text(
                       "register",
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 25, color: Colors.black , fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(

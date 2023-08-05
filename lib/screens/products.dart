@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Colors.amber,
+            color: Colors.black54,
           ),
           child: Column(
             children: [
@@ -46,13 +46,18 @@ class Home extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Text(
-                "${model.name}   Price: ${model.price} ",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "${model.name}   Price: ${model.price} ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
               ),
+
             ],
           ),
         ),

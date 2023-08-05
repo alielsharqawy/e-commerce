@@ -17,14 +17,19 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   // ignore:
-  PageController MyController = PageController();
-  bool Islastpage = false;
-  @override
-  void dispose() {
-    MyController.dispose();
-    super.dispose();
-  }
-
+  var controller = PageController();
+  bool islast = false ;
+  List<onbordingitems> screen = [
+    onbordingitems(title:'onbording 1 ' ,
+      image: LogoImage() ,
+      subtitle: "page 1",),
+    onbordingitems(title:'onbording 2 ' ,
+      image: LogoImage() ,
+      subtitle: "page 2",),
+    onbordingitems(title:'onbording 3 ' ,
+      image: LogoImage() ,
+      subtitle: "page 3",),
+  ];
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UserCubit, UserState>(
@@ -32,86 +37,79 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     builder: (context, state) {
     var cubit = UserCubit.get(context);
     return Scaffold(
-      body: Container(
-        color: cubit.isdark? Colors.black : Colors.white,
-        padding: EdgeInsets.only(bottom: 60),
-        child: PageView(
-          controller: MyController,
-          onPageChanged: (index) {
-            setState(() {
-              Islastpage = index == 1;
-            });
-          },
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            LogoImage(),
-            LogoImage(),
-          ],
-        ),
-      ),
-      bottomSheet: Islastpage
-          ? ElevatedButton( 
-         
-        style: ButtonStyle
-          (
-          shape: MaterialStatePropertyAll(ContinuousRectangleBorder(borderRadius: BorderRadius.all(Radius.zero))),
-          fixedSize: MaterialStatePropertyAll(Size(double.maxFinite,80)),
-          backgroundColor: MaterialStatePropertyAll(cubit.isdark? Colors.black : Colors.white),
-            elevation: MaterialStatePropertyAll(0)
-            ),
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
-              },
-                child: Text(
-                  "LET'S START!",
-                  style:TextStyle(color: cubit.isdark? Colors.white : Colors.black, ),
-                ),
-
-            )
-          : Container(
-              color: cubit.isdark? Colors.black : Colors.white,
-              child: Row(
+        appBar: AppBar(),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  onPageChanged: (index){
+                    if(index == screen.length-1 ){
+                      setState(() {
+                        islast = true ;
+                      });
+                    }else{
+                      setState(() {
+                        islast = false ;
+                      });
+                    }
+                  },
+                  physics: BouncingScrollPhysics(),
+                  controller: controller,
+                  itemBuilder: (context, index) => onbordingitem(screen[index]),
+                  itemCount: screen.length,),
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextButton(
-                    onPressed: () => {
-                      MyController.jumpToPage(1),
-                    },
-                    child: Text("Skip", style: TextStyle(color: Colors.grey)),
-                  ),
-                  SmoothPageIndicator(
-                    controller: MyController, // PageController
-                    count: 2,
-                    effect: const WormEffect(
-                      spacing: 25,
-                      dotColor: Colors.black26,
-                      activeDotColor: Colors.blue,
-                    ),
-                    onDotClicked: (index) => MyController.animateToPage(
-                      index,
-                      duration: const Duration(
-                        milliseconds: 5,
-                      ),
-                      curve: Curves.easeInQuad,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => {
-                      MyController.nextPage(
-                        duration: const Duration(microseconds: 5),
-                        curve: Curves.easeInOut,
-                      ),
-                    },
-                    child: Text("Next"),
+                  SmoothPageIndicator(controller: controller, count: screen.length,effect: ExpandingDotsEffect(
+                      activeDotColor: Colors.amber ,
+                      paintStyle: PaintingStyle.fill,
+                      expansionFactor: 4.0,
+                      spacing: 10
+                  ),),
+                  FloatingActionButton(onPressed: () {
+                    if(islast == true){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>LoginScreen(),));
+                    }else {
+                      controller.nextPage(
+                          duration: Duration(milliseconds: 250),
+                          curve: Curves.easeInOutCubicEmphasized);
+                    }
+                  },
+                    child: Icon(Icons.arrow_forward_ios),
+
                   ),
                 ],
               ),
-            ),
+              SizedBox(height: 25,)
+            ],
+          ),
+        )
     );
         }
         );
   }
 }
+
+class onbordingitems {
+  late Widget image ;
+  late String title ;
+  late String subtitle ;
+  onbordingitems({required this.title , required this.subtitle,required this.image});
+}
+
+Widget onbordingitem(onbordingitems list) => Padding(
+  padding: const EdgeInsets.all(20),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Expanded(child:Center(child: list.image)),
+      Text(list.title,style: TextStyle(fontSize: 25)),
+      SizedBox(height: 10,),
+      Text(list.subtitle),
+      SizedBox(height: 100,),
+    ],
+  ),
+);

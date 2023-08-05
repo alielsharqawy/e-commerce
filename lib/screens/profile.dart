@@ -10,7 +10,7 @@ import 'darkmood.dart';
 class Profile extends StatelessWidget {
   Profile({super.key});
 
-  UserModel? userModel;
+   UserModel? userModel  ;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -27,15 +27,15 @@ class Profile extends StatelessWidget {
               ),
               body: Column(
                 children: [
-                  Text("${userModel!.email}"),
+                  Text("${userModel?.email}"),
                   SizedBox(
                     height: 10,
                   ),
-                  Text("${userModel!.password}"),
+                  Text("${userModel?.password}"),
                   SizedBox(
                     height: 10,
                   ),
-                  Text("${userModel!.uId}"),
+                  Text("${userModel?.uId}"),
                 ],
               ));
         },
