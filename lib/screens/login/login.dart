@@ -51,22 +51,22 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: TextFormField(
-                      controller: emailController,
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                      ),
-                      validator: (value) {
-                        if (value!.contains("@")) {
-                          return null;
-                        } else {
-                          return "add valid email";
-                        }
-                      },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextFormField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
                     ),
+                    validator: (value) {
+                      if (value!.contains("@")) {
+                        return null;
+                      } else {
+                        return "add valid email";
+                      }
+                    },
                   ),
+                ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
@@ -80,34 +80,11 @@ class LoginScreen extends StatelessWidget {
                         }
                         return null;
                       },
-                      hint: "Password",
-                      width: double.infinity,
-                      context: context),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  MaterialButton(
-                    height: 50,
-                    minWidth: double.infinity,
-                    elevation: 10.0,
-                    color: Colors.blue,
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        UserCubit.get(context).userLogin(
-                            email: emailController.text,
-                            password: passController.text);
-                      }
-                    },
-                    child: const Text(
-                      "LogIn",
-                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
+
                   const SizedBox(
                     height: 20,
-                  ),
-                  const SizedBox(
-                    height: 10,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
