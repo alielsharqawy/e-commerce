@@ -8,6 +8,7 @@ class ProductModel {
   String name;
   String price;
 
+
   ProductModel({required this.image, required this.name, required this.price});
 
   ProductModel copyWith({

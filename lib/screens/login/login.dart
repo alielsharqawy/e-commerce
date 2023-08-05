@@ -30,10 +30,10 @@ class LoginScreen extends StatelessWidget {
         var cubit = UserCubit.get(context);
         return Scaffold(
           backgroundColor: cubit.isdark ? Colors.black : Colors.white,
-          // appBar: AppBar(
-          //   backgroundColor: cubit.isdark ? Colors.black : Colors.white,
-          //   elevation: 0.0,
-          // ),
+          appBar: AppBar(
+            backgroundColor: cubit.isdark ? Colors.black : Colors.white,
+            elevation: 0.0,
+          ),
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Padding(
@@ -42,8 +42,8 @@ class LoginScreen extends StatelessWidget {
                 key: formKey,
                 child: Column(children: [
                   Container(
-                    height: 170,
-                    width: 170,
+                    height: 250,
+                    width: 250,
                     child: LogoImage(),),
                   const SizedBox(
                     height: 40,
@@ -78,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                     height: 50,
                     minWidth: double.infinity,
                     elevation: 10.0,
-                    color: Colors.blue,
+                    color: Colors.amber,
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         UserCubit.get(context).userLogin(
@@ -88,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: const Text(
                       "LogIn",
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 25, color: Colors.black,fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(
@@ -130,7 +130,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: const Text(
                       "No Account? Sign Up",
-                      style: TextStyle(fontSize: 20, color: Colors.black45),
+                      style: TextStyle(fontSize: 25, color: Colors.black),
                     ),
                   ),
                 ]),
