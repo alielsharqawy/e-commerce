@@ -7,12 +7,8 @@ class ProductModel {
   String image;
   String name;
   String price;
- 
-  ProductModel({
-    required this.image,
-    required this.name,
-    required this.price
-  });
+
+  ProductModel({required this.image, required this.name, required this.price});
 
   ProductModel copyWith({
     String? image,
@@ -21,7 +17,7 @@ class ProductModel {
     return ProductModel(
       image: image ?? this.image,
       name: name ?? this.name,
-      price: price ?? this.price,
+      price: price,
     );
   }
 
@@ -34,10 +30,9 @@ class ProductModel {
 
   factory ProductModel.fromMap(Map<String, dynamic> map) {
     return ProductModel(
-      image: map['image'] as String,
-      name: map['name'] as String,
-      price: map['price'] as String
-    );
+        image: map['image'] as String,
+        name: map['name'] as String,
+        price: map['price'] as String);
   }
 
   String toJson() => json.encode(toMap());
@@ -51,19 +46,14 @@ class ProductModel {
   @override
   bool operator ==(covariant ProductModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.image == image &&
-      other.name == name;
+
+    return other.image == image && other.name == name;
   }
-   factory ProductModel.fromFirestore(DocumentSnapshot doc) {
+
+  factory ProductModel.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data() as Map;
     return ProductModel(
-      image: data['image'],
-      name: data['name'],
-      price: data['price']
-      
-    );
+        image: data['image'], name: data['name'], price: data['price']);
   }
 
   @override

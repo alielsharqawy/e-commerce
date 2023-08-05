@@ -21,7 +21,7 @@ class UserCubit extends Cubit<UserState> {
       password: password,
     )
         .then((value) {
-      userCreate(email: email, uId: value.user!.uid);
+      userCreate(email: email, uId: value.user!.uid, password: password);
       print("$email}");
       print("$password");
       emit(UserSuccesState());
@@ -30,13 +30,9 @@ class UserCubit extends Cubit<UserState> {
     });
   }
 
-  void userCreate({
-    required String email,
-    required String uId,
-  }) {
-    UserModel model = UserModel(
-      email: email,
-    );
+  void userCreate(
+      {required String email, required String uId, required String password}) {
+    UserModel model = UserModel(email: email, password: password, uId: uId);
 
     FirebaseFirestore.instance
         .collection('users')
@@ -77,5 +73,16 @@ class UserCubit extends Cubit<UserState> {
         emit(changemodestate());
       });
     }
+  }
+
+  UserModel? userModel;
+  String? uId;
+  void getUserData() {
+    emit(UserLoadingState());
+    FirebaseFirestore.instance.collection('users').doc(uId).get().then((value) {
+      print(value.data());
+      userModel = UserModel.fromJason(value.data()!);
+      emit(UserSuccesState());
+    });
   }
 }

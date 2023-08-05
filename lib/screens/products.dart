@@ -1,9 +1,6 @@
 import 'package:app/data_cubit/cubit/product_cubit/product.dart';
-import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/product_state/product_state.dart';
-import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/models/product_model.dart';
-import 'package:app/screens/darkmood.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,7 +53,6 @@ class Home extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-         
             ],
           ),
         ),
