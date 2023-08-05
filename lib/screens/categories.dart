@@ -14,6 +14,7 @@ class Categories extends StatelessWidget {
       child: BlocConsumer<CategoryCubit, CategoryState>(
         listener: (context, state) {},
         builder: (context, state) {
+
           return Scaffold(
               body: ListView.separated(
             physics: BouncingScrollPhysics(),
@@ -34,25 +35,34 @@ class Categories extends StatelessWidget {
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Colors.amber,
+            color: Colors.black54,
           ),
           child: Column(
             children: [
               Container(
                 decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    BoxDecoration(
+
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                 child: Image.network(
                   "${model.image}",
                   fit: BoxFit.cover,
                 ),
               ),
-              Text(
-                "${model.name}",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                ),
-              )
+
+                 Padding(
+                   padding: const EdgeInsets.all(8.0),
+                   child: Text(
+                     "${model.name}",
+                     style: TextStyle(
+                       color: Colors.white,
+                       fontWeight: FontWeight.bold,
+                       fontSize: 25,
+                     ),
+                   ),
+                 ),
+
             ],
           ),
         ),

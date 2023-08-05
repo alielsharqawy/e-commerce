@@ -33,10 +33,10 @@ class LoginScreen extends StatelessWidget {
         var cubit = UserCubit.get(context);
         return Scaffold(
           backgroundColor: cubit.isdark ? Colors.black : Colors.white,
-          // appBar: AppBar(
-          //   backgroundColor: cubit.isdark ? Colors.black : Colors.white,
-          //   elevation: 0.0,
-          // ),
+          appBar: AppBar(
+            backgroundColor: cubit.isdark ? Colors.black : Colors.white,
+            elevation: 0.0,
+          ),
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Padding(
@@ -47,8 +47,7 @@ class LoginScreen extends StatelessWidget {
                   Container(
                     height: 170,
                     width: 170,
-                    child: LogoImage(),
-                  ),
+                    child: LogoImage(),),
                   const SizedBox(
                     height: 20,
                   ),
@@ -81,6 +80,27 @@ class LoginScreen extends StatelessWidget {
                         }
                         return null;
                       },
+                      hint: "Password",
+                      width: double.infinity,
+                      context: context),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  MaterialButton(
+                    height: 50,
+                    minWidth: double.infinity,
+                    elevation: 10.0,
+                    color: Colors.blue,
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        UserCubit.get(context).userLogin(
+                            email: emailController.text,
+                            password: passController.text);
+                      }
+                    },
+                    child: const Text(
+                      "LogIn",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
                   const SizedBox(
@@ -153,20 +173,9 @@ class LoginScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Container(
-                      height: 40,
-
-                      decoration: BoxDecoration(
-                          color: Colors.blueAccent,
-                          borderRadius: BorderRadius.circular(
-                            12.0,
-                          )),
-                      child: const Center(
-                        child: Text(
-                          "No Account? Sign Up",
-                          style: TextStyle(color: Colors.white, fontSize: 15.0),
-                        ),
-                      ),
+                    child: const Text(
+                      "No Account? Sign Up",
+                      style: TextStyle(fontSize: 20, color: Colors.black45),
                     ),
                   ),
 

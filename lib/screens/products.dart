@@ -1,9 +1,6 @@
 import 'package:app/data_cubit/cubit/product_cubit/product.dart';
-import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/product_state/product_state.dart';
-import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/models/product_model.dart';
-import 'package:app/screens/darkmood.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,7 +34,7 @@ class Home extends StatelessWidget {
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Colors.amber,
+            color: Colors.black54,
           ),
           child: Column(
             children: [
@@ -49,14 +46,18 @@ class Home extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Text(
-                "${model.name}   Price: ${model.price} ",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "${model.name}   Price: ${model.price} ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
               ),
-         
+
             ],
           ),
         ),

@@ -49,6 +49,10 @@ class MyApp extends StatelessWidget {
                   unselectedItemColor: Colors.white,
                   backgroundColor: Colors.amber,
                 ),
+                floatingActionButtonTheme: FloatingActionButtonThemeData(
+                  backgroundColor: Colors.amber,
+                  elevation: 20,
+                ),
                 elevatedButtonTheme: ElevatedButtonThemeData(
                     style: ButtonStyle(
                         backgroundColor:
@@ -67,6 +71,10 @@ class MyApp extends StatelessWidget {
                   color: Colors.amber,
                   foregroundColor: Colors.white,
                 ),
+                floatingActionButtonTheme: FloatingActionButtonThemeData(
+                  backgroundColor: Colors.amber,
+                  elevation: 20,
+                ),
                 bottomNavigationBarTheme: BottomNavigationBarThemeData(
                   selectedItemColor: Colors.white,
                   unselectedItemColor: Colors.black,
@@ -79,7 +87,7 @@ class MyApp extends StatelessWidget {
                     TextTheme(bodyMedium: TextStyle(color: Colors.white))),
             themeMode: cubit.isdark ? ThemeMode.dark : ThemeMode.light,
             debugShowCheckedModeBanner: false,
-            home: Profile(),
+            home: SplachScreen(),
           );
         },
       ),
