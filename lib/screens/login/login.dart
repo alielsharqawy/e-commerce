@@ -1,7 +1,7 @@
 import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/screens/login/register.dart';
-import 'package:app/screens/products.dart';
+import 'package:app/screens/view_product/products.dart';
 import 'package:app/screens/start/navigationbar.dart';
 import 'package:app/widget/form_field.dart';
 import 'package:app/widget/logo_image.dart';
@@ -119,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                         height: 40,
 
                         decoration: BoxDecoration(
-                            color: Colors.blueAccent,
+                            color: Colors.amber,
                             borderRadius: BorderRadius.circular(
                               12.0,
                             )),
@@ -152,7 +152,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: const Text(
                       "No Account? Sign Up",
-                      style: TextStyle(fontSize: 20, color: Colors.black45),
+                      style: TextStyle(fontSize: 20, color: Colors.amber),
                     ),
                   ),
 

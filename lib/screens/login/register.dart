@@ -1,5 +1,6 @@
 import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/user_states/user_state.dart';
+import 'package:app/screens/login/login.dart';
 import 'package:app/screens/start/navigationbar.dart';
 import 'package:app/widget/form_field.dart';
 import 'package:app/widget/logo_image.dart';
@@ -40,8 +41,8 @@ class RegisterScreen extends StatelessWidget {
                 key: formKey,
                 child: Column(children: [
                   Container(
-                    height: 250,
-                    width: 250,
+                    height: 170,
+                    width: 170,
                     child: LogoImage(),
                   ),
                   const SizedBox(
@@ -96,13 +97,18 @@ class RegisterScreen extends StatelessWidget {
                   InkWell(
                       onTap: () {
                         {
-                          Navigator.pop(context);
+                         Navigator.pushReplacement<void, void>(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) => LoginScreen(),
+                        ),
+                      );
                         }
                       },
                       child: Text(
-                        "Have Account",
+                        "Have Account? Sign In",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.amber,
                         ),
                       ))
                 ]),

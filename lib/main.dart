@@ -1,10 +1,10 @@
 import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/firebase_options.dart';
-import 'package:app/screens/categories.dart';
+import 'package:app/screens/view_product/categories.dart';
 import 'package:app/screens/login/login.dart';
 import 'package:app/screens/login/register.dart';
-import 'package:app/screens/products.dart';
+import 'package:app/screens/view_product/products.dart';
 import 'package:app/screens/profile.dart';
 import 'package:app/screens/start/navigationbar.dart';
 import 'package:app/screens/start/splach.dart';
