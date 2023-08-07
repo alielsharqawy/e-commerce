@@ -3,7 +3,6 @@ import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/screens/login/register.dart';
 import 'package:app/screens/view_product/products.dart';
 import 'package:app/screens/start/navigationbar.dart';
-import 'package:app/widget/form_field.dart';
 import 'package:app/widget/logo_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -47,26 +46,27 @@ class LoginScreen extends StatelessWidget {
                   Container(
                     height: 170,
                     width: 170,
-                    child: LogoImage(),),
+                    child: LogoImage(),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: TextFormField(
-                    controller: emailController,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                      ),
+                      validator: (value) {
+                        if (value!.contains("@")) {
+                          return null;
+                        } else {
+                          return "add valid email";
+                        }
+                      },
                     ),
-                    validator: (value) {
-                      if (value!.contains("@")) {
-                        return null;
-                      } else {
-                        return "add valid email";
-                      }
-                    },
                   ),
-                ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
@@ -82,7 +82,6 @@ class LoginScreen extends StatelessWidget {
                       },
                     ),
                   ),
-
                   const SizedBox(
                     height: 20,
                   ),
@@ -104,7 +103,8 @@ class LoginScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const NavigationBarButton()),
+                                  builder: (context) =>
+                                      const NavigationBarButton()),
                             );
                           } else {
                             // ignore: use_build_context_synchronously
@@ -117,7 +117,6 @@ class LoginScreen extends StatelessWidget {
                       },
                       child: Container(
                         height: 40,
-
                         decoration: BoxDecoration(
                             color: Colors.amber,
                             borderRadius: BorderRadius.circular(
@@ -127,20 +126,24 @@ class LoginScreen extends StatelessWidget {
                           child: Text(
                             "Log In",
                             style:
-                                TextStyle(color: Colors.white, fontSize: 15.0),
+                                TextStyle(color: Colors.white, fontSize: 25.0),
                           ),
                         ),
                       ),
                     ),
                   ),
                   const SizedBox(
-                      height: 20,
-                      ),
+                    height: 20,
+                  ),
                   Text(
                     "Forget Password?",
-                    style: TextStyle(fontSize: 16, ),
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   InkWell(
                     onTap: () {
                       Navigator.pushReplacement<void, void>(
@@ -155,7 +158,6 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 20, color: Colors.amber),
                     ),
                   ),
-
                 ]),
               ),
             ),

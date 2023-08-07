@@ -74,21 +74,29 @@ class RegisterScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  MaterialButton(
-                    height: 50,
-                    minWidth: double.infinity,
-                    elevation: 10.0,
-                    color: Colors.amber,
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        UserCubit.get(context).userRegister(
-                            email: emailController.text,
-                            password: passController.text);
-                      }
-                    },
-                    child: const Text(
-                      "register",
-                      style: TextStyle(fontSize: 25, color: Colors.black , fontWeight: FontWeight.bold),
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    child: MaterialButton(
+                      height: 40,
+                      minWidth: double.infinity,
+                      elevation: 10.0,
+                      color: Colors.amber,
+                      onPressed: () async {
+                        if (formKey.currentState!.validate()) {
+                          UserCubit.get(context).userRegister(
+                              email: emailController.text,
+                              password: passController.text);
+                        }
+                      },
+                      child: const Text(
+                        "register",
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -97,12 +105,12 @@ class RegisterScreen extends StatelessWidget {
                   InkWell(
                       onTap: () {
                         {
-                         Navigator.pushReplacement<void, void>(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) => LoginScreen(),
-                        ),
-                      );
+                          Navigator.pushReplacement<void, void>(
+                            context,
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context) => LoginScreen(),
+                            ),
+                          );
                         }
                       },
                       child: Text(

@@ -24,8 +24,6 @@ Widget defaultFormField({
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: TextFormField(
-        cursorColor: Colors.black,
-        style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 15.0),
         controller: controller,
         keyboardType: keyboardType,
         obscureText: isPassword,
@@ -37,32 +35,9 @@ Widget defaultFormField({
         onChanged: onChange,
         inputFormatters: textInputFormatter,
         decoration: InputDecoration(
-          fillColor: Colors.grey.withOpacity(0.5),
-          filled: true,
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.black),
-            borderRadius: BorderRadius.circular(15),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.grey, width: 2.0),
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          hintText: hint,
+          label: Text(hint),
           hintStyle:
               Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 15.0),
-          border: const OutlineInputBorder(),
         ),
       ),
     );
