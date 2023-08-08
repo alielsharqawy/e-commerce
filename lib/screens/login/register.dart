@@ -2,7 +2,6 @@ import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/screens/login/login.dart';
 import 'package:app/screens/start/navigationbar.dart';
-import 'package:app/widget/form_field.dart';
 import 'package:app/widget/logo_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,47 +47,70 @@ class RegisterScreen extends StatelessWidget {
                   const SizedBox(
                     height: 40,
                   ),
-                  defaultFormField(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
                       controller: emailController,
-                      validate: (String value) {
-                        if (value.isEmpty) {
-                          return "Email is not correct";
+                      decoration: InputDecoration(
+                          filled: true,
+                          fillColor: cubit.isdark ? Colors.white : Colors.white,
+                          hintText: "Email"),
+                      validator: (value) {
+                        if (value!.contains("@")) {
+                          return null;
+                        } else {
+                          return "add valid email";
                         }
                       },
-                      hint: "E-mail",
-                      width: double.infinity,
-                      context: context),
-                  const SizedBox(
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextFormField(
+                      controller: passController,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: cubit.isdark ? Colors.white : Colors.white,
+                        hintText: "Password",
+                      ),
+                      validator: (value) {
+                        if (value!.length < 6) {
+                          return 'Please enter Valid password';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  SizedBox(
                     height: 20,
                   ),
-                  defaultFormField(
-                      controller: passController,
-                      validate: (String value) {
-                        if (value.length < 6) {
-                          return "Password must be 6 numbers ";
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    width: 300,
+                    child: MaterialButton(
+                      height: 40,
+                      minWidth: double.infinity,
+                      elevation: 10.0,
+                      color: Colors.amber,
+                      onPressed: () async {
+                        if (formKey.currentState!.validate()) {
+                          UserCubit.get(context).userRegister(
+                              email: emailController.text,
+                              password: passController.text);
                         }
                       },
-                      hint: "Password",
-                      width: double.infinity,
-                      context: context),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  MaterialButton(
-                    height: 50,
-                    minWidth: double.infinity,
-                    elevation: 10.0,
-                    color: Colors.amber,
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        UserCubit.get(context).userRegister(
-                            email: emailController.text,
-                            password: passController.text);
-                      }
-                    },
-                    child: const Text(
-                      "register",
-                      style: TextStyle(fontSize: 25, color: Colors.black , fontWeight: FontWeight.bold),
+                      child: Text(
+                        "register",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: cubit.isdark ? Colors.black : Colors.white,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -97,12 +119,12 @@ class RegisterScreen extends StatelessWidget {
                   InkWell(
                       onTap: () {
                         {
-                         Navigator.pushReplacement<void, void>(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) => LoginScreen(),
-                        ),
-                      );
+                          Navigator.pushReplacement<void, void>(
+                            context,
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context) => LoginScreen(),
+                            ),
+                          );
                         }
                       },
                       child: Text(

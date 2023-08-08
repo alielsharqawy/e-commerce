@@ -1,12 +1,6 @@
 import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/firebase_options.dart';
-import 'package:app/screens/view_product/categories.dart';
-import 'package:app/screens/login/login.dart';
-import 'package:app/screens/login/register.dart';
-import 'package:app/screens/view_product/products.dart';
-import 'package:app/screens/profile.dart';
-import 'package:app/screens/start/navigationbar.dart';
 import 'package:app/screens/start/splach.dart';
 import 'package:app/widget/cach_helper.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -55,10 +49,10 @@ class MyApp extends StatelessWidget {
                 ),
                 elevatedButtonTheme: ElevatedButtonThemeData(
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Colors.amber),
+                        backgroundColor: MaterialStatePropertyAll(Colors.amber),
                         fixedSize: MaterialStatePropertyAll(Size(200, 40)),
-                        shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
+                        shape:
+                            MaterialStatePropertyAll(ContinuousRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         )))),
                 progressIndicatorTheme: ProgressIndicatorThemeData(
@@ -68,14 +62,12 @@ class MyApp extends StatelessWidget {
                 scaffoldBackgroundColor: Colors.black,
                 elevatedButtonTheme: ElevatedButtonThemeData(
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Colors.amber),
+                        backgroundColor: MaterialStatePropertyAll(Colors.amber),
                         fixedSize: MaterialStatePropertyAll(Size(200, 40)),
-                      shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ))
-
-                    )),
+                        shape:
+                            MaterialStatePropertyAll(ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        )))),
                 drawerTheme: DrawerThemeData(backgroundColor: Colors.black26),
                 appBarTheme: AppBarTheme(
                   color: Colors.amber,
