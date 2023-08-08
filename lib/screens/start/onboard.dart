@@ -3,6 +3,7 @@ import 'package:app/screens/login/login.dart';
 import 'package:app/widget/logo_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../data_cubit/cubit/user_cubit/user_cubit.dart';
 import '../../data_cubit/states/user_states/user_state.dart';
@@ -78,7 +79,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),),
                   FloatingActionButton(onPressed: () {
                     if(islast == true){
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>LoginScreen(),));
+                      Navigator.pushReplacement(context, PageTransition(type:PageTransitionType.rightToLeft , child:LoginScreen(),duration: Duration(milliseconds: 1300)));
                     }else {
                       controller.nextPage(
                           duration: Duration(milliseconds: 250),

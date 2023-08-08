@@ -85,4 +85,9 @@ class UserCubit extends Cubit<UserState> {
       emit(UserSuccesState());
     });
   }
+bool isPassword = true;
+  void visibility() {
+    isPassword = !isPassword;
+    emit(changepass());
+  }
 }

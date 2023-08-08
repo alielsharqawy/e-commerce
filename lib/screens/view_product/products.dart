@@ -4,6 +4,9 @@ import 'package:app/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../data_cubit/cubit/user_cubit/user_cubit.dart';
+import '../darkmood.dart';
+
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -15,6 +18,11 @@ class Home extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+              endDrawer: Mydrawar(),
+              appBar: AppBar(
+                backgroundColor: UserCubit.get(context).isdark ? Colors.black : Colors.white,
+                elevation: 0.0,
+              ),
               body: ListView.separated(
             physics: BouncingScrollPhysics(),
             separatorBuilder: (context, index) => SizedBox(height: 20),

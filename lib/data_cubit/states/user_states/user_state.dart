@@ -14,3 +14,4 @@ class UserLoginSuccessState extends UserState {
 }
 
 class changemodestate extends UserState {}
+class changepass extends UserState {}

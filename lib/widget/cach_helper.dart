@@ -17,4 +17,15 @@ class sharedhelper {
   }) {
     return shared!.getBool(key);
   }
+
+  static Future<bool> putString(
+      {required String key, required String value}) async {
+    return await shared!.setString(key, value);
+  }
+
+  static String? getString({
+    required String key,
+  }) {
+    return shared!.getString(key);
+  }
 }

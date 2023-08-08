@@ -3,6 +3,7 @@ import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/screens/login/register.dart';
 import 'package:app/screens/view_product/products.dart';
 import 'package:app/screens/start/navigationbar.dart';
+import 'package:app/widget/form_field.dart';
 import 'package:app/widget/logo_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -41,49 +42,37 @@ class LoginScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Form(
-                
                 key: _formKey,
                 child: Column(children: [
                   Container(
                     height: 170,
                     width: 170,
-                    child: LogoImage(),
+                    child: LogoImage(),),
+                  const SizedBox(
+                    height: 20,
                   ),
-                  
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: TextFormField(
-                                    keyboardType: TextInputType.emailAddress,
-                      controller: emailController,
-                      decoration:  InputDecoration(
-                        labelText: 'Email',
-                        
-                        labelStyle:TextStyle(
-                           fontSize: 16,
-                          color: cubit.isdark ? Colors.white : Colors.black,
-                        ),
-                      ),
-                      validator: (value) {
-                        if (value!.contains("@")) {
-                          return null;
-                        } else {
-                          return "add valid email";
-                        }
-                      },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextFormField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
                     ),
+                    validator: (value) {
+                      if (value!.contains("@")) {
+                        return null;
+                      } else {
+                        return "add valid email";
+                      }
+                    },
                   ),
+                ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
-                      obscureText: true,
-                         controller: passController,
-                      decoration:  InputDecoration(
-                        labelText: 'Password', 
-                       
-                        labelStyle:TextStyle(
-                           fontSize: 16,
-                          color: cubit.isdark ? Colors.white : Colors.black,
-                        ), 
+                      controller: passController,
+                      decoration: const InputDecoration(
+                        labelText: 'Password',
                       ),
                       validator: (value) {
                         if (value!.length < 6) {
@@ -93,6 +82,7 @@ class LoginScreen extends StatelessWidget {
                       },
                     ),
                   ),
+
                   const SizedBox(
                     height: 20,
                   ),
@@ -114,8 +104,7 @@ class LoginScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      const NavigationBarButton()),
+                                  builder: (context) => const NavigationBarButton()),
                             );
                           } else {
                             // ignore: use_build_context_synchronously
@@ -128,6 +117,7 @@ class LoginScreen extends StatelessWidget {
                       },
                       child: Container(
                         height: 40,
+
                         decoration: BoxDecoration(
                             color: Colors.amber,
                             borderRadius: BorderRadius.circular(
@@ -137,24 +127,20 @@ class LoginScreen extends StatelessWidget {
                           child: Text(
                             "Log In",
                             style:
-                                TextStyle(color: Colors.white, fontSize: 25.0),
+                                TextStyle(color: Colors.white, fontSize: 15.0),
                           ),
                         ),
                       ),
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
-                  ),
+                      height: 20,
+                      ),
                   Text(
                     "Forget Password?",
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(fontSize: 16, ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20,),
                   InkWell(
                     onTap: () {
                       Navigator.pushReplacement<void, void>(
@@ -169,6 +155,7 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 20, color: Colors.amber),
                     ),
                   ),
+
                 ]),
               ),
             ),

@@ -56,7 +56,11 @@ class MyApp extends StatelessWidget {
                 elevatedButtonTheme: ElevatedButtonThemeData(
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStatePropertyAll(Colors.amber))),
+                            MaterialStatePropertyAll(Colors.amber),
+                        fixedSize: MaterialStatePropertyAll(Size(200, 40)),
+                        shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        )))),
                 progressIndicatorTheme: ProgressIndicatorThemeData(
                   color: Colors.amber,
                 )),
@@ -65,7 +69,13 @@ class MyApp extends StatelessWidget {
                 elevatedButtonTheme: ElevatedButtonThemeData(
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStatePropertyAll(Colors.amber))),
+                            MaterialStatePropertyAll(Colors.amber),
+                        fixedSize: MaterialStatePropertyAll(Size(200, 40)),
+                      shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ))
+
+                    )),
                 drawerTheme: DrawerThemeData(backgroundColor: Colors.black26),
                 appBarTheme: AppBarTheme(
                   color: Colors.amber,

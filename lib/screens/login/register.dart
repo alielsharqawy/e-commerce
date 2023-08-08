@@ -45,8 +45,10 @@ class RegisterScreen extends StatelessWidget {
                     width: 170,
                     child: LogoImage(),
                   ),
+                  const SizedBox(
+                    height: 40,
+                  ),
                   defaultFormField(
-                      keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       validate: (String value) {
                         if (value.isEmpty) {
@@ -60,7 +62,6 @@ class RegisterScreen extends StatelessWidget {
                     height: 20,
                   ),
                   defaultFormField(
-                      isPassword: true,
                       controller: passController,
                       validate: (String value) {
                         if (value.length < 6) {
@@ -73,29 +74,21 @@ class RegisterScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                    child: MaterialButton(
-                      height: 40,
-                      minWidth: double.infinity,
-                      elevation: 10.0,
-                      color: Colors.amber,
-                      onPressed: () async {
-                        if (formKey.currentState!.validate()) {
-                          UserCubit.get(context).userRegister(
-                              email: emailController.text,
-                              password: passController.text);
-                        }
-                      },
-                      child: const Text(
-                        "register",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                        ),
-                      ),
+                  MaterialButton(
+                    height: 50,
+                    minWidth: double.infinity,
+                    elevation: 10.0,
+                    color: Colors.amber,
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        UserCubit.get(context).userRegister(
+                            email: emailController.text,
+                            password: passController.text);
+                      }
+                    },
+                    child: const Text(
+                      "register",
+                      style: TextStyle(fontSize: 25, color: Colors.black , fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(
@@ -104,12 +97,12 @@ class RegisterScreen extends StatelessWidget {
                   InkWell(
                       onTap: () {
                         {
-                          Navigator.pushReplacement<void, void>(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) => LoginScreen(),
-                            ),
-                          );
+                         Navigator.pushReplacement<void, void>(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) => LoginScreen(),
+                        ),
+                      );
                         }
                       },
                       child: Text(
