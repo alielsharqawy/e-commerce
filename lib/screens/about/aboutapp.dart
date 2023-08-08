@@ -1,9 +1,9 @@
 import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/user_states/user_state.dart';
-import 'package:app/screens/start/navigationbar.dart';
 import 'package:app/widget/logo_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../start/navigationbar.dart';
 
 class AboutApp extends StatelessWidget {
   const AboutApp({super.key});
@@ -25,8 +25,7 @@ class AboutApp extends StatelessWidget {
                 Navigator.pushReplacement<void, void>(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) =>
-                        const NavigationBarButton(),
+                    builder: (BuildContext context) => NavigationBarButton(),
                   ),
                 );
               },

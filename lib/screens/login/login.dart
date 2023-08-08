@@ -41,6 +41,7 @@ class LoginScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Form(
+                
                 key: _formKey,
                 child: Column(children: [
                   Container(
@@ -48,15 +49,19 @@ class LoginScreen extends StatelessWidget {
                     width: 170,
                     child: LogoImage(),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
+                                    keyboardType: TextInputType.emailAddress,
                       controller: emailController,
-                      decoration: const InputDecoration(
+                      decoration:  InputDecoration(
                         labelText: 'Email',
+                        
+                        labelStyle:TextStyle(
+                           fontSize: 16,
+                          color: cubit.isdark ? Colors.white : Colors.black,
+                        ),
                       ),
                       validator: (value) {
                         if (value!.contains("@")) {
@@ -70,9 +75,15 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
-                      controller: passController,
-                      decoration: const InputDecoration(
-                        labelText: 'Password',
+                      obscureText: true,
+                         controller: passController,
+                      decoration:  InputDecoration(
+                        labelText: 'Password', 
+                       
+                        labelStyle:TextStyle(
+                           fontSize: 16,
+                          color: cubit.isdark ? Colors.white : Colors.black,
+                        ), 
                       ),
                       validator: (value) {
                         if (value!.length < 6) {

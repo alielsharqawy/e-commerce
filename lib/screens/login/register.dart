@@ -45,10 +45,8 @@ class RegisterScreen extends StatelessWidget {
                     width: 170,
                     child: LogoImage(),
                   ),
-                  const SizedBox(
-                    height: 40,
-                  ),
                   defaultFormField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       validate: (String value) {
                         if (value.isEmpty) {
@@ -62,6 +60,7 @@ class RegisterScreen extends StatelessWidget {
                     height: 20,
                   ),
                   defaultFormField(
+                      isPassword: true,
                       controller: passController,
                       validate: (String value) {
                         if (value.length < 6) {

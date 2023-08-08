@@ -38,7 +38,8 @@ class _NavigationBarButtonState extends State<NavigationBarButton> {
             icon: Icons.person,
           ),
         ],
-
+        curve: Curves.easeOutQuint,
+        elevation: 5,
         backgroundColor:
             Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         activeColor:
@@ -46,9 +47,11 @@ class _NavigationBarButtonState extends State<NavigationBarButton> {
         color: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
         initialActiveIndex: page_index,
         onTap: (int index) {
-          setState(() {
-            page_index = index;
-          });
+          setState(
+            () {
+              page_index = index;
+            },
+          );
         },
       ),
     );
