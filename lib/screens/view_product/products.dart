@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
                   child: Text(
                     "Products",
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 22,
                     ),
                   ),
                 ),

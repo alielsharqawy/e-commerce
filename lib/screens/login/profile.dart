@@ -32,7 +32,7 @@ class _ProfileState extends State<Profile> {
             title: Center(
               child: Text(
                 "Profile",
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 22),
               ),
             ),
           ),
