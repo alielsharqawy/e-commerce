@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:app/screens/view_product/categories.dart';
 import 'package:app/screens/view_product/products.dart';
-import 'package:app/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+
+import '../login/profile.dart';
 
 class NavigationBarButton extends StatefulWidget {
   const NavigationBarButton({super.key});

@@ -2,6 +2,7 @@ import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:app/screens/login/register.dart';
 import 'package:app/screens/start/navigationbar.dart';
+import 'package:app/widget/cach_helper.dart';
 import 'package:app/widget/logo_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -97,18 +98,16 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20.0,
                     ),
-                    child: InkWell(
-                      onTap: () async {
+                    child: ElevatedButton(
+                      onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           bool result = await firebaselogin(
                               emailController.text, passController.text);
                           if (result) {
-                            final SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                            await prefs.setString(
-                                'email', emailController.text);
+                          sharedhelper.putString(key: 'email', value: emailController.text);
+                          sharedhelper.putString(key: 'pass', value: passController.text);
                             // ignore: use_build_context_synchronously
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
@@ -123,16 +122,7 @@ class LoginScreen extends StatelessWidget {
                           }
                         }
                       },
-                      child: Container(
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(
-                            12.0,
-                          ),
-                        ),
-                        child:  Center(
-                          child: Text(
+                      child: Text(
                               "Sign In",
                               style: TextStyle(
                                 fontSize: 25,
@@ -140,8 +130,6 @@ class LoginScreen extends StatelessWidget {
                                     cubit.isdark ? Colors.black : Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
-                            ),
-                        ),
                       ),
                     ),
                   ),
