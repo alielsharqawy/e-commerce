@@ -36,27 +36,29 @@ class _ProfileState extends State<Profile> {
               ),
             ),
           ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              children: [
-                Center(
-                  child: Container(
-                    height: 170,
-                    width: 170,
-                    child: LogoImage(),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                children: [
+                  Center(
+                    child: Container(
+                      height: 170,
+                      width: 170,
+                      child: LogoImage(),
+                    ),
                   ),
-                ),
-                MyButton('Email', email),
-                SizedBox(
-                  height: 15,
-                ),
-               MyButton('Password', pass),
-                SizedBox(
-                  height: 15,
-                ),
-                MyButton('City', 'AlMansoura'),
-              ],
+                  MyButton('Email', email),
+                  SizedBox(
+                    height: 15,
+                  ),
+                 MyButton('Password', pass),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  MyButton('City', 'AlMansoura'),
+                ],
+              ),
             ),
           ),
         );

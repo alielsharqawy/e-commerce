@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
 
-  final formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController passController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
 
@@ -37,7 +37,7 @@ class RegisterScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Form(
-                key: formKey,
+                key: _formKey,
                 child: Column(
                   children: [
                     Container(
@@ -73,7 +73,7 @@ class RegisterScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
-                        obscureText :true,
+                        obscureText: true,
                         keyboardType: TextInputType.number,
                         controller: passController,
                         decoration: InputDecoration(
@@ -96,12 +96,18 @@ class RegisterScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         horizontal: 20.0,
                       ),
-                      child: InkWell(
-                        onTap: () {
-                          if (formKey.currentState!.validate()) {
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          if (_formKey.currentState!.validate()) {
                             UserCubit.get(context).userRegister(
                                 email: emailController.text,
                                 password: passController.text);
+                          } else {
+                            // ignore: use_build_context_synchronously
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('add valid account')),
+                            );
                           }
                         },
                         child: Container(
@@ -158,25 +164,3 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
-//  Container(
-//                       clipBehavior: Clip.hardEdge,
-//                       decoration: BoxDecoration(
-//                           borderRadius: BorderRadius.circular(20)),
-//                       width: 300,
-//                       child: MaterialButton(
-//                         height: 40,
-//                         minWidth: double.infinity,
-//                         elevation: 10.0,
-//                         color: Colors.amber,
-//                         onPressed: () async {
-//                          
-//                         },
-//                         child: Text(
-//                           "register",
-//                           style: TextStyle(
-//                               fontSize: 25,
-//                               color: cubit.isdark ? Colors.black : Colors.white,
-//                               fontWeight: FontWeight.bold),
-//                         ),
-//                       ),
-//                     ),

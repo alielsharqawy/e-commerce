@@ -20,8 +20,16 @@ class Home extends StatelessWidget {
           return Scaffold(
               endDrawer: Mydrawar(),
               appBar: AppBar(
-                backgroundColor: UserCubit.get(context).isdark ? Colors.black : Colors.white,
+                backgroundColor: Colors.amber,
                 elevation: 0.0,
+                title: Center(
+                  child: Text(
+                    "Products",
+                    style: TextStyle(
+                      fontSize: 30,
+                    ),
+                  ),
+                ),
               ),
               body: ListView.separated(
             physics: BouncingScrollPhysics(),

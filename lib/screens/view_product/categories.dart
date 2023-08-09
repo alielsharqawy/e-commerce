@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../widget/MyDrawar.dart';
 
-
 class Categories extends StatelessWidget {
   const Categories({super.key});
 
@@ -22,12 +21,13 @@ class Categories extends StatelessWidget {
                 backgroundColor: Colors.amber,
                 elevation: 0.0,
                 title: Center(
-                    child: Text(
-                  "Categories",
-                  style: TextStyle(
-                    fontSize: 30,
+                  child: Text(
+                    "Categories",
+                    style: TextStyle(
+                      fontSize: 30,
+                    ),
                   ),
-                )),
+                ),
               ),
               body: ListView.separated(
                 physics: BouncingScrollPhysics(),
