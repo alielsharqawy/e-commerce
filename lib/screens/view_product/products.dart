@@ -20,25 +20,17 @@ class Home extends StatelessWidget {
           return Scaffold(
               endDrawer: Mydrawar(),
               appBar: AppBar(
-                backgroundColor: Colors.amber,
+                backgroundColor: UserCubit.get(context).isdark ? Colors.black : Colors.white,
                 elevation: 0.0,
-                title: Center(
-                  child: Text(
-                    "Products",
-                    style: TextStyle(
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
               ),
               body: ListView.separated(
-                physics: BouncingScrollPhysics(),
-                separatorBuilder: (context, index) => SizedBox(height: 20),
-                itemBuilder: (context, index) => buildItem(
-                  context.read<ProductCubit>().products[index],
-                ),
-                itemCount: context.read<ProductCubit>().products.length,
-              ));
+            physics: BouncingScrollPhysics(),
+            separatorBuilder: (context, index) => SizedBox(height: 20),
+            itemBuilder: (context, index) => buildItem(
+              context.read<ProductCubit>().products[index],
+            ),
+            itemCount: context.read<ProductCubit>().products.length,
+          ));
         },
       ),
     );
@@ -73,6 +65,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+
             ],
           ),
         ),
