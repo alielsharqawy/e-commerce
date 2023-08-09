@@ -20,15 +20,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   var controller = PageController();
   bool islast = false ;
   List<onbordingitems> screen = [
-    onbordingitems(title:'onbording 1 ' ,
+    onbordingitems(title:'Hello To Our Market' ,
       image: LogoImage() ,
-      subtitle: "page 1",),
-    onbordingitems(title:'onbording 2 ' ,
+      subtitle: "Let's Start",),
+    onbordingitems(title:'Make Your Shopping Easy ' ,
       image: LogoImage() ,
-      subtitle: "page 2",),
-    onbordingitems(title:'onbording 3 ' ,
+      subtitle: "Discover Other World In E-commerce",),
+    onbordingitems(title:"Let's Sign" ,
       image: LogoImage() ,
-      subtitle: "page 3",),
+      subtitle: "",),
   ];
   @override
   Widget build(BuildContext context) {

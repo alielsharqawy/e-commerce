@@ -3,8 +3,8 @@ import 'package:app/data_cubit/states/user_states/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../widget/logo_image.dart';
-import 'darkmood.dart';
+import '../../widget/logo_image.dart';
+import '../../widget/darkmood.dart';
 
 class Profile extends StatefulWidget {
   @override

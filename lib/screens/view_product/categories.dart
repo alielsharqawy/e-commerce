@@ -1,11 +1,9 @@
 import 'package:app/data_cubit/cubit/category_cubit/category.dart';
-import 'package:app/data_cubit/cubit/user_cubit/user_cubit.dart';
 import 'package:app/data_cubit/states/category_state/category_state.dart';
 import 'package:app/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../darkmood.dart';
+import '../../widget/darkmood.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});

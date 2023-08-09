@@ -3,9 +3,7 @@ import 'package:app/data_cubit/states/product_state/product_state.dart';
 import 'package:app/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../data_cubit/cubit/user_cubit/user_cubit.dart';
-import '../darkmood.dart';
+import '../../widget/darkmood.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
