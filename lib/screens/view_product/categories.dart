@@ -17,22 +17,27 @@ class Categories extends StatelessWidget {
       child: BlocConsumer<CategoryCubit, CategoryState>(
         listener: (context, state) {},
         builder: (context, state) {
-
           return Scaffold(
               endDrawer: Mydrawar(),
               appBar: AppBar(
-                backgroundColor: UserCubit.get(context).isdark ? Colors.black : Colors.white,
+                backgroundColor: Colors.amber,
                 elevation: 0.0,
+                title: Center(
+                    child: Text(
+                  "Categories",
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
+                )),
               ),
               body: ListView.separated(
-
-            physics: BouncingScrollPhysics(),
-            separatorBuilder: (context, index) => SizedBox(height: 20),
-            itemBuilder: (context, index) => buildItem(
-              context.read<CategoryCubit>().categories[index],
-            ),
-            itemCount: context.read<CategoryCubit>().categories.length,
-          ));
+                physics: BouncingScrollPhysics(),
+                separatorBuilder: (context, index) => SizedBox(height: 20),
+                itemBuilder: (context, index) => buildItem(
+                  context.read<CategoryCubit>().categories[index],
+                ),
+                itemCount: context.read<CategoryCubit>().categories.length,
+              ));
         },
       ),
     );
@@ -49,29 +54,25 @@ class Categories extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                decoration:
-                    BoxDecoration(
-
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Image.network(
                   "${model.image}",
                   fit: BoxFit.cover,
                 ),
               ),
-
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: Text(
-                     "${model.name}",
-                     style: TextStyle(
-                       color: Colors.white,
-                       fontWeight: FontWeight.bold,
-                       fontSize: 25,
-                     ),
-                   ),
-                 ),
-
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "${model.name}",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

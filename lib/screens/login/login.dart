@@ -53,6 +53,7 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       decoration: InputDecoration(
                           filled: true,
@@ -73,6 +74,8 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      obscureText: true,
                       controller: passController,
                       decoration: InputDecoration(
                         filled: true,
@@ -123,16 +126,21 @@ class LoginScreen extends StatelessWidget {
                       child: Container(
                         height: 40,
                         decoration: BoxDecoration(
-                            color: Colors.amber,
-                            borderRadius: BorderRadius.circular(
-                              12.0,
-                            )),
-                        child: const Center(
-                          child: Text(
-                            "Log In",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 15.0),
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.circular(
+                            12.0,
                           ),
+                        ),
+                        child:  Center(
+                          child: Text(
+                              "Sign In",
+                              style: TextStyle(
+                                fontSize: 25,
+                                color:
+                                    cubit.isdark ? Colors.black : Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                         ),
                       ),
                     ),
@@ -160,7 +168,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: const Text(
                       "No Account? Sign Up",
-                      style: TextStyle(fontSize: 20, color: Colors.amber),
+                      style: TextStyle(fontSize: 25, color: Colors.amber),
                     ),
                   ),
                 ]),

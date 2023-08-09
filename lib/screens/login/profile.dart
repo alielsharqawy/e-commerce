@@ -39,7 +39,7 @@ class _ProfileState extends State<Profile> {
             title: Center(
               child: Text(
                 "Profile",
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 30),
               ),
             ),
           ),
@@ -49,8 +49,8 @@ class _ProfileState extends State<Profile> {
               children: [
                 Center(
                   child: Container(
-                    height: 150,
-                    width: 150,
+                    height: 170,
+                    width: 170,
                     child: LogoImage(),
                   ),
                 ),
@@ -62,7 +62,7 @@ class _ProfileState extends State<Profile> {
                           "Email : ",
                           style: TextStyle(
                               color: cubit.isdark ? Colors.white : Colors.black,
-                              fontSize: 18),
+                              fontSize: 30),
                         )),
                     Expanded(
                       flex: 4,
@@ -71,7 +71,7 @@ class _ProfileState extends State<Profile> {
                         // ignore: prefer_const_constructors
                         style: TextStyle(
                             color: cubit.isdark ? Colors.white : Colors.black,
-                            fontSize: 18),
+                            fontSize: 30),
                       ),
                     )
                   ],
@@ -87,7 +87,7 @@ class _ProfileState extends State<Profile> {
                           "City : ",
                           style: TextStyle(
                               color: cubit.isdark ? Colors.white : Colors.black,
-                              fontSize: 18),
+                              fontSize: 30),
                         )),
                     Expanded(
                       flex: 4,
@@ -96,7 +96,7 @@ class _ProfileState extends State<Profile> {
                         // ignore: prefer_const_constructors
                         style: TextStyle(
                             color: cubit.isdark ? Colors.white : Colors.black,
-                            fontSize: 18),
+                            fontSize: 30),
                       ),
                     )
                   ],

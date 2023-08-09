@@ -38,85 +38,98 @@ class RegisterScreen extends StatelessWidget {
               padding: const EdgeInsets.all(20.0),
               child: Form(
                 key: formKey,
-                child: Column(children: [
-                  Container(
-                    height: 170,
-                    width: 170,
-                    child: LogoImage(),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: TextFormField(
-                      controller: emailController,
-                      decoration: InputDecoration(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 170,
+                      width: 170,
+                      child: LogoImage(),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        controller: emailController,
+                        decoration: InputDecoration(
+                            filled: true,
+                            fillColor:
+                                cubit.isdark ? Colors.white : Colors.white,
+                            hintText: "Email"),
+                        validator: (value) {
+                          if (value!.contains("@")) {
+                            return null;
+                          } else {
+                            return "add valid email";
+                          }
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        obscureText :true,
+                        keyboardType: TextInputType.number,
+                        controller: passController,
+                        decoration: InputDecoration(
                           filled: true,
                           fillColor: cubit.isdark ? Colors.white : Colors.white,
-                          hintText: "Email"),
-                      validator: (value) {
-                        if (value!.contains("@")) {
+                          hintText: "Password",
+                        ),
+                        validator: (value) {
+                          if (value!.length < 6) {
+                            return 'Please enter Valid password';
+                          }
                           return null;
-                        } else {
-                          return "add valid email";
-                        }
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: TextFormField(
-                      controller: passController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: cubit.isdark ? Colors.white : Colors.white,
-                        hintText: "Password",
-                      ),
-                      validator: (value) {
-                        if (value!.length < 6) {
-                          return 'Please enter Valid password';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                    width: 300,
-                    child: MaterialButton(
-                      height: 40,
-                      minWidth: double.infinity,
-                      elevation: 10.0,
-                      color: Colors.amber,
-                      onPressed: () async {
-                        if (formKey.currentState!.validate()) {
-                          UserCubit.get(context).userRegister(
-                              email: emailController.text,
-                              password: passController.text);
-                        }
-                      },
-                      child: Text(
-                        "register",
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: cubit.isdark ? Colors.black : Colors.white,
-                            fontWeight: FontWeight.bold),
+                        },
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  InkWell(
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            UserCubit.get(context).userRegister(
+                                email: emailController.text,
+                                password: passController.text);
+                          }
+                        },
+                        child: Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(
+                              12.0,
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                fontSize: 25,
+                                color:
+                                    cubit.isdark ? Colors.black : Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    InkWell(
                       onTap: () {
                         {
                           Navigator.pushReplacement<void, void>(
@@ -131,9 +144,12 @@ class RegisterScreen extends StatelessWidget {
                         "Have Account? Sign In",
                         style: TextStyle(
                           color: Colors.amber,
+                          fontSize: 25,
                         ),
-                      ))
-                ]),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -142,3 +158,25 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
+//  Container(
+//                       clipBehavior: Clip.hardEdge,
+//                       decoration: BoxDecoration(
+//                           borderRadius: BorderRadius.circular(20)),
+//                       width: 300,
+//                       child: MaterialButton(
+//                         height: 40,
+//                         minWidth: double.infinity,
+//                         elevation: 10.0,
+//                         color: Colors.amber,
+//                         onPressed: () async {
+//                          
+//                         },
+//                         child: Text(
+//                           "register",
+//                           style: TextStyle(
+//                               fontSize: 25,
+//                               color: cubit.isdark ? Colors.black : Colors.white,
+//                               fontWeight: FontWeight.bold),
+//                         ),
+//                       ),
+//                     ),
